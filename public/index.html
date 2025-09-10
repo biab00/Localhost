@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Servidor</title>
+        <style> h4{margin-bottom: 0} </style>
+    </head>
+    <body>
+        <h1>Vosso Site</h1>
+
+        <form action="/sobre" method="GET">
+            <button type="submit">Ver Tarefas</button>
+        </form>
+        <!--POST / Adicionar -->
+        <h4>Adicionar nova tarefa</h4>
+        <form action="/tarefas" method="POST">
+            <label>Nome da Tarefa</label>
+            <input type="text" name="nome">
+            <button type="submit">Enviar</button>
+        </form>
+
+        <!--PUT / Mudar -->
+        <h4>Mudar tarefa pelo id</h4>
+        <form action="/sobre/?_method=PUT" method="POST">
+            ID: <input type="number" name="id" min="1" max="20">
+            Novo nome: <input type="text" name="nome">
+        </br>
+            <label>Tarefa já feita?</label> 
+            <button type="submit">Atualizar</button>
+    </br>
+            Não<input type="radio" name="feito" value=0>
+            Sim<input type="radio" name="feito" value=1>
+           
+        </form>
+
+        <!--DELETE / Excluir -->
+        <h4>Deletar tarefa pelo id</h4>
+        <form action="/sobre/?_method=DELETE" method="POST">
+            ID: <input type="number" name="id" min="1" max="20">
+            <button type="subimt">Deletar</button>
+        </form>
+
+        <p>Para buscar tarefas tente "/buscar?feito=x" (x = true ou false) </p>
+
+    </body>
+</html>
